@@ -14,5 +14,9 @@ export default function ZLayer({ children }: { children: React.ReactNode }) {
     };
   }, [onMount, onUnMount]);
 
-  return <div style={{ zIndex: zIndex(layerId) }}>{children}</div>;
+  return (
+    <div style={{ zIndex: zIndex(layerId), position: "absolute" }}>
+      {children}
+    </div>
+  );
 }
