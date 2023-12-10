@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ZLayer from "./ZManager/ZLayer";
 import ZProvider from "./ZManager/ZProvder";
 
@@ -20,13 +19,7 @@ function App() {
 }
 
 const Something = () => {
-  const [enter, setEnter] = useState(false);
-  return (
-    <div>
-      <button onClick={() => setEnter((p) => !p)}>hi!</button>
-      {enter && <ZLayer>asdf</ZLayer>}
-    </div>
-  );
+  return <ZLayer>asdf</ZLayer>;
 };
 
 export default App;
