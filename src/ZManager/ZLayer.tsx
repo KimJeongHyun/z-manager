@@ -1,16 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useGetZContext } from "./ZContext";
 
 export default function ZLayer({ children }: { children: React.ReactNode }) {
+  const [layerId, setLayerId] = useState<string>();
   const { onMount, onUnMount, zIndex } = useGetZContext();
 
   useEffect(() => {
-    const layerId = onMount();
+    const id = onMount();
+    setLayerId(id);
 
     return () => {
-      onUnMount(layerId);
+      onUnMount(id);
     };
   }, [onMount, onUnMount]);
 
-  return <div style={{ zIndex: zIndex() }}>{children}</div>;
+  return <div style={{ zIndex: zIndex(layerId) }}>{children}</div>;
 }

@@ -7,8 +7,8 @@ export class ZManager {
     this.layers = [];
   }
 
-  zIndex() {
-    return this.layers.length;
+  zIndex(layerId?: string) {
+    return this.layers.find((layer) => layer.id === layerId)?.zIndex;
   }
 
   onMount() {

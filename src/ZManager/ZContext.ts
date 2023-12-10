@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 interface ZContextValues {
   onMount: () => string;
   onUnMount: (layerId: string) => void;
-  zIndex: () => number;
+  zIndex: (layerId?: string) => number | undefined;
 }
 
 const ZContext = createContext<ZContextValues | null>(null);
