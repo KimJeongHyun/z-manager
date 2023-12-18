@@ -55,6 +55,6 @@ export const ZProxy = new Proxy(ZIndexConsts, {
       throw new Error("ZIndex must be over than 0");
     }
 
-    return Math.ceil(numberizeKey);
+    return Math.floor(numberizeKey);
   },
 });
