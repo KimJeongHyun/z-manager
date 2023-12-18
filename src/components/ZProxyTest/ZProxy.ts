@@ -36,9 +36,9 @@ const ZIndexConsts: ZIndexConstsType = Object.freeze({
  * @description 기존에 설정된 z-index 값보다 상위의 값으로 넣어주어야 하기 때문에 번거로울 수 있습니다.
  */
 export const ZProxy = new Proxy(ZIndexConsts, {
-  get(zIndexs, zKey) {
-    if (zKey in zIndexs) {
-      return zIndexs[zKey];
+  get(zIndexes, zKey) {
+    if (zKey in zIndexes) {
+      return zIndexes[zKey];
     }
 
     const numberizeKey = Number(zKey);
