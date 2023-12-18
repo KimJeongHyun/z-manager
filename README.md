@@ -60,7 +60,7 @@ const ZIndexConsts: ZIndexConstsType = Object.freeze({
   - 이런 상황의 경우, 차라리 페이지의 기준 z-index를 잡아두고, 등차수열 형태로 z-index를 명시한 별도의 객체를 쓰는 것이 나을 수도 있습니다.
 
 
-# 2️⃣ class로 관리하기
+# 2️⃣ class 객체와 Context API
 
 Context API로 구현된 방식으로, 사용법은 다음과 같습니다.
 
