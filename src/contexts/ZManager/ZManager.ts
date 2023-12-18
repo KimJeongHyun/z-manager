@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 
-interface ZIndexConstsType {
+export interface ZIndexBaseType {
   BASE: number;
   NAV: number;
   AUTH: number;
@@ -8,7 +8,7 @@ interface ZIndexConstsType {
   SYSTEM: number;
 }
 
-const ZIndexConsts: ZIndexConstsType = Object.freeze({
+const ZIndexConsts: ZIndexBaseType = Object.freeze({
   BASE: 0,
   NAV: 1,
   AUTH: 5000,
@@ -27,8 +27,8 @@ export class ZManager {
     if (this.layers.length === 0) return true;
 
     return (
-      Math.max(...this.layers.map((layer) => layer.zIndex)) < index &&
-      index < ZIndexConsts.AUTH
+      Math.max(...this.layers.map((layer) => layer.zIndex)) > index &&
+      index > ZIndexConsts.AUTH
     );
   }
 
@@ -55,20 +55,23 @@ export class ZManager {
     this.layers = this.layers.filter((layer) => layer.id !== layerId);
   }
 
-  onPush(base: keyof ZIndexConstsType, index: number) {
-    if (!Array.isArray(index)) {
-      const layerId = v4();
+  onBasePush(base: keyof ZIndexBaseType, index: number) {
+    const layerId = v4();
 
-      const nextZIndex = ZIndexConsts[`${base}`] + index;
+    const nextZIndex = ZIndexConsts[`${base}`] + index;
 
-      if (this.checkIndexValidate(nextZIndex)) {
-        this.layers.push({
-          id: layerId,
-          zIndex: ZIndexConsts[`${base}`] + index,
-        });
-      }
-
+    if (this.checkIndexValidate(nextZIndex)) {
+      this.layers.push({
+        id: layerId,
+        zIndex: ZIndexConsts[`${base}`] + index,
+      });
       return layerId;
     }
+
+    console.warn(
+      "onBasePush : index validation failed. 2 Argument 'index' might be lower than max index or over than top z-index.\n\nZ-index will be returned by onMount({isIncrement:true})."
+    );
+
+    return this.onMount({ isIncrement: true });
   }
 }

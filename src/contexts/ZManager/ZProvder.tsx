@@ -7,6 +7,7 @@ export default function ZProvider({ children }: { children: React.ReactNode }) {
   const providerValue = {
     onMount: ZManagerInstance.onMount.bind(ZManagerInstance),
     onUnMount: ZManagerInstance.onUnMount.bind(ZManagerInstance),
+    onBasePush: ZManagerInstance.onBasePush.bind(ZManagerInstance),
     zIndex: ZManagerInstance.zIndex.bind(ZManagerInstance),
   };
 
