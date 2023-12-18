@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 interface ZContextValues {
-  onMount: () => string;
+  onMount: ({ isIncrement }: { isIncrement: boolean }) => string;
   onUnMount: (layerId: string) => void;
   zIndex: (layerId?: string) => number | undefined;
 }

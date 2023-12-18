@@ -6,7 +6,7 @@ export default function RecursionLayer({ onClose }: { onClose: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <ZLayer isDimmed>
+    <ZLayer isDimmed isIncrement={false}>
       <FlexCenter>
         <button onClick={() => setIsOpen(true)}>OPEN</button>
         <button onClick={onClose}>CLOSE</button>
