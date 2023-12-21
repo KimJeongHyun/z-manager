@@ -29,7 +29,6 @@ const ZIndexConsts: ZIndexConstsType = Object.freeze({
 
 /**
  * @method get 기준 프로퍼티로 호출된 값을 반환합니다. 이미 정의된 프로퍼티 값이 아닌 경우엔 Number 변환이 되는지, 최상단 인덱스보다 낮은 값인지 확인하여 경우에 맞게 반환합니다.
- * @method set 내부 Object 로직을 무시하고 무조건 true를 반환하도록하여 원본 객체에 값이 쓰여지지 않도록 방어합니다.
  * @description z-index를 관리하는 프록시.
  * @description ZProxy는 ZIndexConsts의 프로퍼티를 따릅니다. 다른 깊이의 레이어를 선언할 때는, ZProxy[1] 과 같이 Number형식의 값으로 호출할 수 있습니다.
  * @description 항상 값을 지정해줘야되기 때문에, 컴포넌트가 여러겹으로 쌓인 페이지를 작업할 때엔 더 신경써야됩니다.
