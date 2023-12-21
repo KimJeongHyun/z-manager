@@ -31,6 +31,7 @@ export default function ZProxyTest() {
       <AuthAlert />
       <MaintainAlert />
       <SystemAlert />
+      <CustomIndex />
       <Divider />
       <ButtonContainer>
         {modes.map((mode) => (
@@ -64,6 +65,10 @@ const MaintainAlert = () => {
 
 const SystemAlert = () => {
   return <div style={{ zIndex: ZProxy.SYSTEM }}>SystemAlert</div>;
+};
+
+const CustomIndex = () => {
+  return <div style={{ zIndex: ZProxy[1234] }}>CustomIndex</div>;
 };
 
 const PropIsString = () => {

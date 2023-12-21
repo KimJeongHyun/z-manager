@@ -69,7 +69,11 @@ export class ZManager {
     }
 
     console.warn(
-      "onBasePush : index validation failed. 2 Argument 'index' might be lower than max index or over than top z-index.\n\nZ-index will be returned by onMount({isIncrement:true})."
+      `onBasePush : 
+      index validation failed. 
+      2 Argument 'index' might be lower than max index or over than top z-index.
+      \n\n
+      Z-index will be returned by onMount({isIncrement:true}).`
     );
 
     return this.onMount({ isIncrement: true });
